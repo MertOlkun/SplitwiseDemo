@@ -12,3 +12,4 @@
 /home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.pdb
 /home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.genruntimeconfig.cache
 /home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/ref/splitwise.dll
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.sourcelink.json

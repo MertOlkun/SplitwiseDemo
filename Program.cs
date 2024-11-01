@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Formats.Tar;
 using System.Runtime.InteropServices.Marshalling;
-
-/*
-kullanıcı ekle
-harcama ekle
-kim ödedi sor
-kimler ne kadar verdi sor
-*/
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
+    
     static void Main(string[]args)
     {
-        Dictionary<string, int> myDict = new Dictionary<string, int>();
+        
+        
         UserList userList = new UserList();
 
         System.Console.WriteLine("Press: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
@@ -42,27 +39,30 @@ class Program
 //* ADD SPENDING 
         else if (a == 3)
         {
+        string? userSpending = Convert.ToString(Console.ReadLine());
+
+        if (userSpending != null)
+        {
         string selectedUser = userList.Listsss();
         int userAmount = Convert.ToInt32(Console.ReadLine());
-        myDict.Add(selectedUser,userAmount);
-        
 
-        
+        SpendingPlace post = new SpendingPlace(selectedUser,userSpending,userAmount );
+
+        post.AddToDictionary();
         }
-//* WIEV SPENDING LIST
+        else
+        {
+            System.Console.WriteLine("Spending cannot be null.");
+            break;
+        }
+
+        }
+/*
+//* VIEW SPENDING LIST
         else if (a == 4)
         {
-        System.Console.WriteLine("List of ");
-        foreach 
-        ( 
-        KeyValuePair <string, int> item in myDict)
-        {
-        
-        System.Console.WriteLine($"{item.Key} {item.Value}");
-        }
-
-        }
-
+            
+        }*/
         }
     }
 }
