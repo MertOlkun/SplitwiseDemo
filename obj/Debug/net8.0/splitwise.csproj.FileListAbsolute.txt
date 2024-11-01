@@ -1,0 +1,14 @@
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.GeneratedMSBuildEditorConfig.editorconfig
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.AssemblyInfoInputs.cache
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.AssemblyInfo.cs
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.csproj.CoreCompileInputs.cache
+/home/mert/SplitwiseDemo/splitwise/bin/Debug/net8.0/splitwise
+/home/mert/SplitwiseDemo/splitwise/bin/Debug/net8.0/splitwise.deps.json
+/home/mert/SplitwiseDemo/splitwise/bin/Debug/net8.0/splitwise.runtimeconfig.json
+/home/mert/SplitwiseDemo/splitwise/bin/Debug/net8.0/splitwise.dll
+/home/mert/SplitwiseDemo/splitwise/bin/Debug/net8.0/splitwise.pdb
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.dll
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/refint/splitwise.dll
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.pdb
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.genruntimeconfig.cache
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/ref/splitwise.dll
