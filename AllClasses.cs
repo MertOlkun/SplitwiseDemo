@@ -4,55 +4,40 @@ using System.Runtime;
 
 public class User
 {
-    public string Name {get;set;}
+    public string Name { get; set; }
 
     public User(string name)
     {
         Name = name;
     }
-    
-
-    
 }
 
 
 public class SpendingPlace
 {
-    public string WhoPaid {get;set;}
-    public string Spending {get;set;}
-    public int Amount {get; set;}
+    public string WhoPaid { get; set; }
+    public string Spending { get; set; }
+    public int Amount { get; set; }
+    public Dictionary<string, int> Payments { get; set; }
 
-    public SpendingPlace(string whoPaid, string spending, int amount)
+    public SpendingPlace(string whoPaid, string spending, int amount, Dictionary<string, int> payments)
     {
         Amount = amount;
         Spending = spending;
         WhoPaid = whoPaid;
+        Payments = payments;
     }
 
-    public Dictionary<string,int> myDict = new Dictionary<string, int>();
-
-    public void AddToDictionary()
-    {
-        myDict.Add(WhoPaid,Amount);
-    }
     public void ShowUsers()
     {
-        foreach (KeyValuePair <string, int> x in myDict)
+        foreach (KeyValuePair<string, int> x in Payments)
         {
             System.Console.WriteLine($"{x.Key} {x.Value}");
         }
     }
 }
-/*
-public class SpendingDictionary
-{
-    public Dictionary<string,int> dictionary = new Dictionary<string,int>();
-    public void AddToDictionary()
-    {
-        dictionary.Add()
-    }
-}
-*/
+
+
 public class UserList
 {
     private List<User> users = new List<User>();
@@ -67,7 +52,7 @@ public class UserList
         foreach (var item in users)
         {
             System.Console.WriteLine($"{users.IndexOf(item)}: {item.Name}");
-            if (a >users.IndexOf(item))
+            if (a > users.IndexOf(item))
             {
                 break;
             }
@@ -76,12 +61,12 @@ public class UserList
         System.Console.WriteLine("Select one of user:");
         int selectedNumber = Convert.ToInt32(Console.ReadLine());
         string selectedUser = users[selectedNumber].Name;
-        System.Console.WriteLine( selectedUser);
+        System.Console.WriteLine(selectedUser);
         return selectedUser;
-        
+
     }
 
-    
+
     public void GetUser()
     {
         foreach (var item in users)

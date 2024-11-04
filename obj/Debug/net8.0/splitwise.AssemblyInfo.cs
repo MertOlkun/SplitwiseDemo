@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("splitwise")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+696e5785bb37e716ed204629649741b698251621")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4d4cc397a3d393561373bea048939ff6071a8af")]
 [assembly: System.Reflection.AssemblyProductAttribute("splitwise")]
 [assembly: System.Reflection.AssemblyTitleAttribute("splitwise")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
