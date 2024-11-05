@@ -15,7 +15,9 @@ class Program
 
         UserList userList = new UserList();
 
-        System.Console.WriteLine("Press: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
+        SpendingList spendingList = new SpendingList();
+
+        Console.WriteLine("Press: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
 
         while (true)
         {
@@ -25,56 +27,80 @@ class Program
             //* ADD USER
             if (a == 1)
             {
+                Console.WriteLine("Enter a name: ");
                 string? name = Convert.ToString(Console.ReadLine());
 
                 if (name != null)
                 {
                     userList.AddUser(new User(name));
                 }
+                Console.WriteLine("Choose a new action ");
             }
             //* GET USER
             else if (a == 2)
             {
                 userList.GetUser();
+                Console.WriteLine("Choose a new action ");
             }
             //* ADD SPENDING 
             else if (a == 3)
             {
+                Console.WriteLine("What was it spent on");
                 string? userSpending = Convert.ToString(Console.ReadLine());
 
-                while (true)
+                if (userSpending != null)
                 {
+                    List<int> payments = new List<int>();
 
-                    if (userSpending != null)
+                    var dict = new Dictionary<string, int>();
+
+                    while (true)
                     {
-                        string selectedUser = userList.Listsss();
+                        string selectedUser = userList.SelectedUser();
+
+                        Console.WriteLine("How much was spent");
                         int userAmount = Convert.ToInt32(Console.ReadLine());
 
-                        var dict = new Dictionary<string, int>();
+                        int firsPayment = payments[0];
+                        int totalDebt = 0;
+
+                        for (int i = 1; i < payments.Count(); i++)
+                        {
+                            int debt = payments[i];
+                            totalDebt += debt;
+                        }
+
+                        if (totalDebt > firsPayment)
+                        {
+                            Console.WriteLine("Debts cannot exceed payment.");
+                            break;
+                        }
+
 
                         dict.Add(selectedUser, userAmount);
 
+                        SpendingPlace post = new SpendingPlace(selectedUser, userSpending, userAmount, dict);
+
+                        spendingList.AddSpendings(post);
+
+                        Console.WriteLine("Choose a new action ");
 
 
-        SpendingPlace post = new SpendingPlace(selectedUser, userSpending, userAmount, dict);
-
-
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("Spending cannot be null.");
-                        break;
                     }
                 }
-
-
+                else
+                {
+                    Console.WriteLine("Spending cannot be null.");
+                    break;
+                }
             }
-            /*
             //* VIEW SPENDING LIST
-                    else if (a == 4)
-                    {
+            else if (a == 4)
+            {
+                spendingList.ShowSpendings();
 
-                    }*/
+                Console.WriteLine("Choose a new action ");
+            }
         }
     }
 }

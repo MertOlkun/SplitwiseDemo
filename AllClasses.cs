@@ -32,7 +32,7 @@ public class SpendingPlace
     {
         foreach (KeyValuePair<string, int> x in Payments)
         {
-            System.Console.WriteLine($"{x.Key} {x.Value}");
+            Console.WriteLine($"{x.Key} {x.Value}");
         }
     }
 }
@@ -46,24 +46,23 @@ public class UserList
     {
         users.Add(user);
     }
-    public string Listsss()
+    public string SelectedUser()
     {
         int a = 0;
         foreach (var item in users)
         {
-            System.Console.WriteLine($"{users.IndexOf(item)}: {item.Name}");
+            Console.WriteLine($"{users.IndexOf(item)}: {item.Name}");
             if (a > users.IndexOf(item))
             {
                 break;
             }
             a++;
         }
-        System.Console.WriteLine("Select one of user:");
+        Console.WriteLine("Select one of user:");
         int selectedNumber = Convert.ToInt32(Console.ReadLine());
         string selectedUser = users[selectedNumber].Name;
-        System.Console.WriteLine(selectedUser);
+        Console.WriteLine(selectedUser);
         return selectedUser;
-
     }
 
 
@@ -73,5 +72,20 @@ public class UserList
         {
             Console.WriteLine($"{users.IndexOf(item)}: {item.Name}");
         }
+    }
+}
+
+public class SpendingList
+{
+    private List<SpendingPlace> spendings = new List<SpendingPlace>();
+
+    public void AddSpendings(SpendingPlace spending)
+    {
+        spendings.Add(spending);
+    }
+
+    public void ShowSpendings()
+    {
+        Console.WriteLine(spendings);
     }
 }
