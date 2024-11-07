@@ -60,17 +60,21 @@ class Program
 
                         Console.WriteLine("How much was spent");
                         int userAmount = Convert.ToInt32(Console.ReadLine());
-
+                        payments.Add(userAmount);
+                        System.Console.WriteLine(payments[0]);
+                        System.Console.WriteLine(payments.Count());
                         int firsPayment = payments[0];
+                        
                         int totalDebt = 0;
 
-                        for (int i = 1; i < payments.Count(); i++)
+                        for (int i = 0; i < payments.Count(); i++)
                         {
                             int debt = payments[i];
                             totalDebt += debt;
                         }
+                        System.Console.WriteLine(totalDebt);
 
-                        if (totalDebt > firsPayment)
+                        if (totalDebt-firsPayment > firsPayment)
                         {
                             Console.WriteLine("Debts cannot exceed payment.");
                             break;
@@ -82,6 +86,7 @@ class Program
                         SpendingPlace post = new SpendingPlace(selectedUser, userSpending, userAmount, dict);
 
                         spendingList.AddSpendings(post);
+                        spendingList.ShowSpendings();
 
                         Console.WriteLine("Choose a new action ");
 

@@ -35,6 +35,11 @@ public class SpendingPlace
             Console.WriteLine($"{x.Key} {x.Value}");
         }
     }
+
+    public override string ToString()
+    {
+        return $"Amount: {Amount}, Spending: {Spending}, Who paid: {WhoPaid}";
+    }
 }
 
 
@@ -77,7 +82,7 @@ public class UserList
 
 public class SpendingList
 {
-    private List<SpendingPlace> spendings = new List<SpendingPlace>();
+    public List<SpendingPlace> spendings = new List<SpendingPlace>();
 
     public void AddSpendings(SpendingPlace spending)
     {
@@ -86,6 +91,10 @@ public class SpendingList
 
     public void ShowSpendings()
     {
-        Console.WriteLine(spendings);
+        System.Console.WriteLine(spendings.ToString());
+        /* for (int i = 0; i < spendings.Count; i++)
+        {
+            spendings[i].ToString
+        } */
     }
 }
