@@ -13,17 +13,17 @@ public class User
 }
 
 
-public class SpendingPlace
+public class Spending
 {
     public string WhoPaid { get; set; }
-    public string Spending { get; set; }
+    public string SpendingName { get; set; }
     public int Amount { get; set; }
     public Dictionary<string, int> Payments { get; set; }
 
-    public SpendingPlace(string whoPaid, string spending, int amount, Dictionary<string, int> payments)
+    public Spending(string whoPaid, string spendingName, int amount, Dictionary<string, int> payments)
     {
         Amount = amount;
-        Spending = spending;
+        SpendingName = spendingName;
         WhoPaid = whoPaid;
         Payments = payments;
     }
@@ -38,8 +38,9 @@ public class SpendingPlace
 
     public override string ToString()
     {
-        return $"Amount: {Amount}, Spending: {Spending}, Who paid: {WhoPaid}";
+        return $"Amount: {Amount}, Spending: {SpendingName}, Who paid: {WhoPaid}";
     }
+
 }
 
 
@@ -78,23 +79,28 @@ public class UserList
             Console.WriteLine($"{users.IndexOf(item)}: {item.Name}");
         }
     }
+
+    public int GetCount()
+    {
+        int a = users.Count();
+        return a;
+    }
 }
 
 public class SpendingList
 {
-    public List<SpendingPlace> spendings = new List<SpendingPlace>();
+    public List<Spending> spendings = new List<Spending>();
 
-    public void AddSpendings(SpendingPlace spending)
+    public void AddSpendings(Spending spending)
     {
         spendings.Add(spending);
     }
 
     public void ShowSpendings()
     {
-        System.Console.WriteLine(spendings.ToString());
-        /* for (int i = 0; i < spendings.Count; i++)
+        for (int i = 0; i < spendings.Count; i++)
         {
-            spendings[i].ToString
-        } */
+            Console.WriteLine(spendings[i].ToString());
+        } 
     }
 }

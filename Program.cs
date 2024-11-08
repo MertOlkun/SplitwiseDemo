@@ -45,59 +45,64 @@ class Program
             //* ADD SPENDING 
             else if (a == 3)
             {
+                List<string> firstPayment = new List<string>();
+
                 Console.WriteLine("What was it spent on");
                 string? userSpending = Convert.ToString(Console.ReadLine());
 
-                if (userSpending != null)
-                {
-                    List<int> payments = new List<int>();
-
-                    var dict = new Dictionary<string, int>();
-
-                    while (true)
-                    {
-                        string selectedUser = userList.SelectedUser();
-
-                        Console.WriteLine("How much was spent");
-                        int userAmount = Convert.ToInt32(Console.ReadLine());
-                        payments.Add(userAmount);
-                        System.Console.WriteLine(payments[0]);
-                        System.Console.WriteLine(payments.Count());
-                        int firsPayment = payments[0];
-                        
-                        int totalDebt = 0;
-
-                        for (int i = 0; i < payments.Count(); i++)
-                        {
-                            int debt = payments[i];
-                            totalDebt += debt;
-                        }
-                        System.Console.WriteLine(totalDebt);
-
-                        if (totalDebt-firsPayment > firsPayment)
-                        {
-                            Console.WriteLine("Debts cannot exceed payment.");
-                            break;
-                        }
-
-
-                        dict.Add(selectedUser, userAmount);
-
-                        SpendingPlace post = new SpendingPlace(selectedUser, userSpending, userAmount, dict);
-
-                        spendingList.AddSpendings(post);
-                        spendingList.ShowSpendings();
-
-                        Console.WriteLine("Choose a new action ");
-
-
-                    }
-                }
-                else
+                if (userSpending == null)
                 {
                     Console.WriteLine("Spending cannot be null.");
                     break;
                 }
+
+                List<int> payments = new List<int>();
+                var dict = new Dictionary<string, int>();
+                string FirstUser = userList.SelectedUser();
+                Console.WriteLine("How much was spent");
+                int WhoPaidSpending = Convert.ToInt32(Console.ReadLine());
+                
+
+                for (int i = 0; i < userList.GetCount(); i++)
+                {
+                    string debtorUser = userList.SelectedUser();
+                   /*  System.Console.WriteLine(userList.GetCount()); */
+
+                    int debtorPaid = Convert.ToInt32(Console.ReadLine());
+
+
+                    payments.Add(debtorPaid);
+                    /* System.Console.WriteLine(payments[0]);
+                    System.Console.WriteLine(payments.Count()); */
+                    int firsPayment = payments[0];
+
+                    int totalDebt = 0;
+
+                    for (int s = 0; s < payments.Count(); s++)
+                    {
+                        int debt = payments[s];
+                        totalDebt += debt;
+                    }
+                    System.Console.WriteLine(totalDebt);
+
+                    if (totalDebt - firsPayment > firsPayment)
+                    {
+                        Console.WriteLine("Debts cannot exceed payment.");
+                        break;
+                    }
+
+
+                    dict.Add(debtorUser, debtorPaid);
+                }
+                    
+
+                    Spending post = new Spending(FirstUser, userSpending, WhoPaidSpending, dict);
+
+                    spendingList.AddSpendings(post);
+                    spendingList.ShowSpendings();
+
+                    Console.WriteLine("Choose a new action ");
+
             }
             //* VIEW SPENDING LIST
             else if (a == 4)
