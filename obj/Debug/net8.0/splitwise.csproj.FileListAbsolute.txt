@@ -13,3 +13,6 @@
 /home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.genruntimeconfig.cache
 /home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/ref/splitwise.dll
 /home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.sourcelink.json
+/home/mert/SplitwiseDemo/splitwise/bin/Debug/net8.0/Newtonsoft.Json.dll
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.csproj.AssemblyReference.cache
+/home/mert/SplitwiseDemo/splitwise/obj/Debug/net8.0/splitwise.csproj.Up2Date

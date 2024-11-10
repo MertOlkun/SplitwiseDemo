@@ -5,12 +5,15 @@ using System.ComponentModel;
 using System.Formats.Tar;
 using System.Runtime.InteropServices.Marshalling;
 using System.Security.Cryptography.X509Certificates;
+using Newtonsoft.Json;
 
 class Program
 {
 
     static void Main(string[] args)
     {
+
+        string filePath = "Spendings_payments.txt";
 
         
         UserList userList = new UserList();
@@ -47,6 +50,11 @@ class Program
             //* ADD SPENDING 
             else if (a == 3)
             {
+                if (userList.GetCount() == 1)
+                {
+                    System.Console.WriteLine("You need to add at least 2 users.");
+                    break;
+                }
                 List<string> firstPayment = new List<string>();
 
                 Console.WriteLine("\nWhat was it spent on");
@@ -67,7 +75,7 @@ class Program
                 int WhoPaidSpending = Convert.ToInt32(Console.ReadLine());
                 
 
-                for (int i = 0; i < userList.GetCount(); i++)
+                for (int i = 1; i < userList.GetCount(); i++)
                 {
                     Console.WriteLine("\nAdd payment amount for each user.");
                     string debtorUser = userList.SelectedUser();
@@ -97,6 +105,11 @@ class Program
                     Spending post = new Spending(FirstUser, userSpending, WhoPaidSpending, dict);
 
                     spendingList.AddSpendings(post);
+
+                    System.Console.WriteLine(post);
+                    string json = JsonConvert.SerializeObject(post, Formatting.Indented);
+
+                    File.AppendAllText(filePath, json + Environment.NewLine);
 
                     Console.WriteLine("\nChoose a new action:\n\nPress: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
 
