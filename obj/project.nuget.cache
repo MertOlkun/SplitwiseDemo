@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fNbiLP9fksg=",
+  "dgSpecHash": "inM8yVIbD6A=",
   "success": true,
   "projectFilePath": "/home/mert/SplitwiseDemo/splitwise/splitwise.csproj",
   "expectedPackageFiles": [
-    "/root/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+    "/home/mert/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
