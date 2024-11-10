@@ -1,1 +1,1 @@
-# SplitwiseDemo
+# Splitwise Clone
