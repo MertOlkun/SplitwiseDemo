@@ -13,20 +13,15 @@ class Program
     static void Main(string[] args)
     {
 
-        string filePath = "Spendings_payments.txt";
-
-        
         UserList userList = new UserList();
 
         SpendingList spendingList = new SpendingList();
 
         var dict = new Dictionary<string, int>();
 
-        Console.WriteLine("\nPress: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
-
         while (true)
         {
-
+            Console.WriteLine("\nChoose a new action:\n\nPress: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
             int a = Convert.ToInt32(Console.ReadLine());
 
             //* ADD USER
@@ -39,13 +34,13 @@ class Program
                 {
                     userList.AddUser(new User(name));
                 }
-                Console.WriteLine("\nChoose a new action:\n\nPress: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
+                
             }
             //* GET USER
             else if (a == 2)
             {
                 userList.GetUser();
-                Console.WriteLine("\nChoose a new action:\n\nPress: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
+                
             }
             //* ADD SPENDING 
             else if (a == 3)
@@ -53,7 +48,7 @@ class Program
                 if (userList.GetCount() == 1)
                 {
                     System.Console.WriteLine("You need to add at least 2 users.");
-                    break;
+                    
                 }
                 List<string> firstPayment = new List<string>();
 
@@ -105,25 +100,26 @@ class Program
                     Spending post = new Spending(FirstUser, userSpending, WhoPaidSpending, dict);
 
                     spendingList.AddSpendings(post);
+                    spendingList.AddSpendingList();
 
-                    System.Console.WriteLine(post);
+                  /*   System.Console.WriteLine(post);
                     string json = JsonConvert.SerializeObject(post, Formatting.Indented);
 
-                    File.AppendAllText(filePath, json + Environment.NewLine);
-
-                    Console.WriteLine("\nChoose a new action:\n\nPress: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
+                    File.AppendAllText(filePath, json + Environment.NewLine); */
 
             }
             //* VIEW SPENDING LIST
             else if (a == 4)
             {
-                
+                spendingList.GetSpendingList();
                 spendingList.ShowSpendings();
                 foreach (KeyValuePair<string, int> item in dict)
                 {
                  Console.WriteLine($"Name: {item.Key} Payment: {item.Value}");   
                 }
-                Console.WriteLine("\nChoose a new action:\n\nPress: 1 to add user.\nPress: 2 to look at users\nPress: 3 to add Spending\nPress: 4 to look at payment list");
+
+                
+                
             }
         }
     }
