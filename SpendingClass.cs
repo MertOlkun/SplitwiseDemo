@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Runtime;
 using System.Xml.Linq;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
 
@@ -32,29 +34,33 @@ public class Spending
     {
         return $"Amount: {Amount}, Spending: {SpendingName}, Who paid: {WhoPaid}";
     }
-
 }
-
-
 
 public class SpendingList
 {
-    public string xd {get;set;}
-    public List<Spending> spendings = new List<Spending>();
+    public List<Spending> Spendings = new List<Spending>();
+
+     public SpendingList(List<Spending> spendings)
+    {
+        Spendings = spendings;
+    } 
+    
 
     public void AddSpendings(Spending spending)
     {
-        spendings.Add(spending);
-    }
-
-    public void ShowSpendings()
-    {
-        for (int i = 0; i < spendings.Count; i++)
-        {
-            Console.WriteLine(spendings[i].ToString());
-        } 
+        Spendings.Add(spending);
     }
 
    
-    
+
+    public void ShowSpendings()
+    {
+
+        Console.WriteLine(Spendings[0].ToString());
+          foreach (var item in Spendings)
+         {
+             Console.WriteLine(item.ToString());
+         } 
+        
+    }
 }

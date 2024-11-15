@@ -12,15 +12,14 @@ public class User
     }
 }
 
-
-public class UserList
+public class userlist
 {
-    private List<User> users = new List<User>();
-
+    public List<User> users = new List<User>();
     public void AddUser(User user)
     {
         users.Add(user);
     }
+
     public string SelectedUser()
     {
         int a = 0;
@@ -39,7 +38,6 @@ public class UserList
         Console.WriteLine(selectedUser);
         return selectedUser;
     }
-
 
     public void GetUser()
     {

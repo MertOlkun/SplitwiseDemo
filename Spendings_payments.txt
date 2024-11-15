@@ -1,1 +1,0 @@
-[{"WhoPaid":"alex","SpendingName":"karı","Amount":2500,"Payments":{"hasan":500}}]
