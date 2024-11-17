@@ -45,22 +45,19 @@ public class SpendingList
         Spendings = spendings;
     } 
     
-
     public void AddSpendings(Spending spending)
     {
         Spendings.Add(spending);
     }
 
-   
-
     public void ShowSpendings()
     {
-
+        Console.WriteLine(Spendings[0]);
         Console.WriteLine(Spendings[0].ToString());
-          foreach (var item in Spendings)
+     /*      foreach (var item in Spendings)
          {
              Console.WriteLine(item.ToString());
          } 
-        
+         */
     }
 }

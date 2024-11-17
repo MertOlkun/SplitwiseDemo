@@ -12,7 +12,7 @@ public class User
     }
 }
 
-public class userlist
+public class UserList
 {
     public List<User> users = new List<User>();
     public void AddUser(User user)

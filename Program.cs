@@ -15,17 +15,19 @@ class Program
     {
         List<int> payments = new List<int>();
 
-        userlist userlist = new userlist();
+        UserList userlist = new UserList();
 
         string filePath = "Spendings_payments.txt";
-
+        List<Spending> x = [];
+        
         string data = File.ReadAllText(filePath);
-
-        List<Spending>? getSpendingJson = JsonConvert.DeserializeObject<List<Spending>>(data);
-
-        SpendingList spendingList = new SpendingList(getSpendingJson);
-
-
+        SpendingList spndng= new SpendingList(x);
+        SpendingList? getSpendingJson = JsonConvert.DeserializeObject<SpendingList>(data);
+        if (getSpendingJson != null)
+        {
+            spndng = new SpendingList(getSpendingJson.Spendings);
+        }
+        
         while (true)
         {
             var dict = new Dictionary<string, int>();
@@ -104,9 +106,8 @@ class Program
 
                 Spending post = new Spending(FirstUser, userSpending, WhoPaidSpending, dict);
 
-                spendingList.AddSpendings(post);
-
-                string addSpendingJson = JsonConvert.SerializeObject(spendingList);
+                spndng.AddSpendings(post);
+                string addSpendingJson = JsonConvert.SerializeObject(spndng);
                 File.WriteAllText(filePath, addSpendingJson);
 
             }
@@ -114,8 +115,8 @@ class Program
             //* VIEW SPENDING LIST
             else if (a == 4)
             {
-                spendingList.ShowSpendings();
-                Console.WriteLine(spendingList);
+                spndng.ShowSpendings();
+                Console.WriteLine(spndng);
             }
         }
     }
