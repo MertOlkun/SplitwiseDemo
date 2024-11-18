@@ -1,0 +1,1 @@
+{"Spendings":[{"WhoPaid":"mert","SpendingName":"market","Amount":2000,"Payments":{"alex":20}},{"WhoPaid":"alex","SpendingName":"anan","Amount":3000,"Payments":{"mert":24}}]}

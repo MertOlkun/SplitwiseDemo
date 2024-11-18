@@ -52,12 +52,16 @@ public class SpendingList
 
     public void ShowSpendings()
     {
-        Console.WriteLine(Spendings[0]);
-        Console.WriteLine(Spendings[0].ToString());
-     /*      foreach (var item in Spendings)
-         {
-             Console.WriteLine(item.ToString());
-         } 
-         */
+        foreach (var item in Spendings)
+        {
+            System.Console.WriteLine(item);
+            foreach (var x in item.Payments)
+            {
+                System.Console.WriteLine(x);
+            }
+            
+        }
+
+        
     }
 }
